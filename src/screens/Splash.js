@@ -12,7 +12,7 @@ const Splash = ({ navigation }) => {
   useEffect(() => {
     setTimeout(() => {
       navigation.replace("servicesScreen");
-    }, 1500);
+    }, 1600);
   });
 
   // animation
