@@ -1,17 +1,20 @@
+
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Txt from '../txt';
 import { Colors, Sizes } from '../../constants';
 
-const ServiceCard = ({ icon, title, bgColor, img }) => (
-    <View style={[styles.card, { backgroundColor: bgColor || Colors.white }]}>
-        {img ? (
-            <Image source={img} style={styles.image} />
-        ) : (
-            <Txt style={styles.icon} size={Sizes.xxLarge}>{icon}</Txt>
-        )}
-        <Txt style={styles.title} color={Colors.black}>{title}</Txt>
-    </View>
+const ServiceCard = ({ icon, title, bgColor, img, onPress }) => (
+    <TouchableOpacity onPress={onPress}>
+        <View style={[styles.card, { backgroundColor: bgColor || Colors.white }]}>
+            {img ? (
+                <Image source={img} style={styles.image} />
+            ) : (
+                <Txt  size={Sizes.medium}>{icon}</Txt>
+            )}
+            <Txt size={Sizes.medium} mt={20} color={Colors.black}>{title}</Txt>
+        </View>
+    </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
@@ -28,7 +31,8 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.1,
         shadowRadius: 4,
         elevation: 4,
-        overflow:"hidden"
+        overflow: 'hidden',
+        alignItems: 'center',
     },
     icon: {
         fontSize: 60,
@@ -39,13 +43,13 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 140,
         resizeMode: 'cover',
-        borderRadius: 16,
     },
     title: {
         fontSize: Sizes.xLarge,
         fontWeight: '600',
-        marginBottom: 4,
+        marginTop: 18,
         color: '#333',
+        textAlign: 'center',
     },
 });
 

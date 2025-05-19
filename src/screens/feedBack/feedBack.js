@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, ScrollView, Image, View, SafeAreaView, Alert } from 'react-native';
-import { Txt, InputFeild, Button } from '../../component';
+import { Txt, InputFeild, Button, Headder } from '../../component';
 import { GlobalStyles, Colors } from '../../constants';
 import { phone, profile, } from '../../assets/images/index';
 
@@ -30,54 +30,52 @@ const FeedBack = () => {
   };
 
   return (
-    <SafeAreaView style={GlobalStyles.safeArea}>
-      <View style={GlobalStyles.headerTop}>
-        <Txt color="white">Life Line Hospital</Txt>
-      </View>
+    <SafeAreaView style={GlobalStyles.safeAreaContainer}>
 
-      <ScrollView contentContainerStyle={styles.container}>
+      <Headder />
+      <ScrollView style={GlobalStyles.scrollViewContainer}>
 
-<View style={{ flex:1, gap:50}}>
+        <View style={{ flex: 1, gap: 50 }}>
 
-        <View>
-          <Image source={require('../../assets/images/feedback.jpg')}
-            style={{ width: '100%', height: 200 }} />
-        </View>
-
-        
+          <View>
+            <Image source={require('../../assets/images/feedback.jpg')}
+              style={{ width: '100%', height: 200 }} />
+          </View>
 
 
 
-        <View style={styles.form}>
-          <InputFeild
-            leftIcon={profile}
-            placeholder="Full Name *"
-            value={formData.name}
-            onChangeText={text => handleInputChange('name', text)}
+
+
+          <View style={styles.form}>
+            <InputFeild
+              leftIcon={profile}
+              placeholder="Full Name *"
+              value={formData.name}
+              onChangeText={text => handleInputChange('name', text)}
             />
 
-          <InputFeild
-            leftIcon={phone}
-            placeholder="Contact (optional)"
-            value={formData.contact}
-            onChangeText={text => handleInputChange('contact', text)}
-          />
+            <InputFeild
+              leftIcon={phone}
+              placeholder="Contact (optional)"
+              value={formData.contact}
+              onChangeText={text => handleInputChange('contact', text)}
+            />
 
-          <InputFeild
-            // leftIcon={}
-            placeholder="Your Feedback *"
-            value={formData.message}
-            onChangeText={text => handleInputChange('message', text)}
-            multiline={true}
-            numberOfLines={4}
-            style={{ height: 100, textAlignVertical: 'top' }} // ensures top alignment
-          />
+            <InputFeild
+              // leftIcon={}
+              placeholder="Your Feedback *"
+              value={formData.message}
+              onChangeText={text => handleInputChange('message', text)}
+              multiline={true}
+              numberOfLines={4}
+              style={{ height: 100, textAlignVertical: 'top' }} // ensures top alignment
+            />
 
-          <Button children='Submit' onPress={submitForm} />
+            <Button children='Submit' onPress={submitForm} />
+          </View>
         </View>
-            </View>
 
-            <Txt children={"Your voice matters to us. Every feedback helps us serve you better, we are committed to improving with your input "}/>
+        <Txt children={"Your voice matters to us. Every feedback helps us serve you better, we are committed to improving with your input "} />
       </ScrollView>
     </SafeAreaView>
   );

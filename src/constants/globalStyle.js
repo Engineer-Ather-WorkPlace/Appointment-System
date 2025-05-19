@@ -11,30 +11,33 @@ export const { width, height } = Dimensions.get("screen")
 export const scale = width < 400 ? 0.8 : 1;
 
 
-
-
-
 const GlobalStyles = StyleSheet.create({
- 
+
   mainContainer: {
-    flex:1,                    
+    flex: 1,
     marginTop: Spacing.small,
     backgroundColor: Colors.white,
   },
 
-  safeArea: {
+  safeAreaContainer: {
     flex: 1,
-    backgroundColor: "white",
-},
-headerTop:{
-  backgroundColor:Colors.secondary,
-  height: 70,
-  borderEndEndRadius: 40,
-  justifyContent:"center",
-  borderBottomWidth: 4,
-  borderRightWidth: 8,
-  borderColor: Colors.primary,
-}
+    backgroundColor:Colors.lightGray,
+  },
+
+  scrollViewContainer: {
+    flex: 1,
+    padding: 16,
+  },
+
+  headerTop: {
+    backgroundColor: Colors.secondary,
+    height: 70,
+    borderEndEndRadius: 40,
+    justifyContent: "center",
+    borderBottomWidth: 4,
+    borderRightWidth: 8,
+    borderColor: Colors.primary,
+  }
 });
 
 export default GlobalStyles;

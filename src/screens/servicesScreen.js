@@ -9,7 +9,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 import { Colors, Fonts, GlobalStyles, Sizes } from '../constants';
-import { Button, Txt } from '../component';
+import { Button, Headder, Txt } from '../component';
 import { useNavigation } from '@react-navigation/native';
 import DoctorCard from '../component/doctorCard';
 import ServiceCard from '../component/serviceCard';
@@ -21,32 +21,35 @@ const specialtySize = width * 0.25;
 const ServicesScreen = () => {
   const navigation = useNavigation();
   return (
-    <SafeAreaView style={styles.container}>
-      {/* Header */}
-      <View style={GlobalStyles.headerTop}>
-        <Txt
-          children={'Life Line Hospital'}
-          size={Sizes.xLarge}
-          color="white"
-        />
-      </View>
+    <SafeAreaView style={GlobalStyles.safeAreaContainer}>
 
-      <ScrollView style={styles.scrollView}>
+      {/* Header */}
+      <Headder />
+
+      <ScrollView style={GlobalStyles.scrollViewContainer}>
+        
         <View style={styles.section}>
+
           {/* Lab test and quick surgeries with shadows */}
           <View style={styles.serviceCardContainer}>
+
+            {/* for Lab Test Report */}
             <View style={styles.serviceCardWrapper}>
               <ServiceCard
                 img={require('../assets/images/labTest.jpg')}
                 title={'Collect Lab Test Report'}
                 bgColor={Colors.lightGreen}
+                onPress={() => navigation.navigate('GetLabTestReport')}
               />
             </View>
+
+            {/* for Procedure & Surgeries  */}
             <View style={styles.serviceCardWrapper}>
               <ServiceCard
                 img={require('../assets/images/surgery.jpg')}
                 title={'Quick Procedures & Surgeries'}
                 bgColor={Colors.lightGreen}
+                onPress={() => { navigation.navigate('QuicProceduresAndSurgeries') }}
               />
             </View>
           </View>
@@ -66,6 +69,7 @@ const ServicesScreen = () => {
               <Button
                 stylee={{ width: '94%', borderRadius: 14 }}
                 children="Book Online Appointment"
+                onPress={() => { navigation.navigate('DoctorAppointment') }}
               />
             </View>
           </View>
@@ -83,9 +87,9 @@ const ServicesScreen = () => {
           </View>
 
           <View style={styles.specialtyGrid}>
-            <EnhancedSpecialtyCard icon="👂" title="ENT Specialist" />
             <EnhancedSpecialtyCard icon="🧴" title="Skin Specialist" />
             <EnhancedSpecialtyCard icon="👶" title="Child Specialist" />
+            <EnhancedSpecialtyCard icon="👂" title="ENT Specialist" />
             <EnhancedSpecialtyCard icon="🦵" title="Orthopedic Surgeon" />
             <EnhancedSpecialtyCard icon="🩸" title="Diabetes Specialist" />
             <EnhancedSpecialtyCard icon="❤️" title="Cardiologist" />
@@ -122,14 +126,7 @@ const EnhancedSpecialtyCard = ({ icon, title }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5F5F5',
-  },
-  scrollView: {
-    flex: 1,
-    padding: 16,
-  },
+  
   section: {},
   // Enhanced section header with card styling
   sectionHeaderCard: {
@@ -258,10 +255,10 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   specialtyIcon: {
-    fontSize: 40,
+    fontSize: Sizes.xxxLarge,
   },
   specialtyTitle: {
-    fontSize: 16,
+    fontSize: Sizes.medium,
     fontWeight: '500',
     textAlign: 'center',
   },
@@ -273,11 +270,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     overflow: 'hidden',
     borderRadius: 10,
-    borderColor:Colors.secondary,
+    borderColor: Colors.secondary,
     borderWidth: 1,
 
     backgroundColor: Colors.lightBlue,
-    
+
     marginBottom: 26,
   }
 });

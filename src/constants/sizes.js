@@ -4,6 +4,7 @@ const Sizes = {
   large:20,
   xLarge: 24,
   xxLarge: 30,
+  xxxLarge:40,
 };
 
 export default Sizes;

@@ -36,7 +36,7 @@ const Splash = ({ navigation }) => {
   }, []);
   return (
 
-    <SafeAreaView style={GlobalStyles.safeArea}>
+    <SafeAreaView style={GlobalStyles.safeAreaContainer}>
 
       <View style={[GlobalStyles.mainContainer, { justifyContent: "center", }]}>
 

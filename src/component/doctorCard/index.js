@@ -1,6 +1,8 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import { Colors, Sizes } from '../../constants';
+import Button from '../button';
+import { useNavigation } from '@react-navigation/native';
 
 const DoctorData = [
   {
@@ -59,7 +61,9 @@ const DoctorData = [
   },
 ];
 
+
 const DoctorCard = () => {
+  const navigation = useNavigation()
   return (
     <View>
       {DoctorData.map(item => (
@@ -75,12 +79,11 @@ const DoctorCard = () => {
             <Text style={styles.time}>{item.speciality}</Text>
 
             <View style={styles.buttonContainer}>
-              <TouchableOpacity style={styles.viewProfileButton}>
-                <Text>View Profile</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>Book Appointment</Text>
-              </TouchableOpacity>
+              <Button children='Book Appointment'
+              onPress={()=>{navigation.navigate('AppointmentConfirmation')}}
+              />
+              {/* <Button children='View Profile'/> */}
+              
             </View>
           </View>
         </View>

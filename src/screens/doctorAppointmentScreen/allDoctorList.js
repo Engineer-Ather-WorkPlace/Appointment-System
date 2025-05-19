@@ -7,19 +7,14 @@ import {
   TextInput,
 } from 'react-native';
 import React from 'react';
-import {Button, GoBackButton, Txt} from '../component';
-import GlobalStyles, {scale} from '../constants/globalStyle';
-import {Colors, Sizes} from '../constants';
-import DoctorCard from '../component/doctorCard';
+import {Button, GoBackButton, Headder, Txt} from '../../component';
+import GlobalStyles, {scale} from '../../constants/globalStyle';
+import {Colors, Sizes} from '../../constants';
+import DoctorCard from '../../component/doctorCard';
 const DoctorAppointment = () => {
   return (
     <SafeAreaView style={GlobalStyles.safeArea}>
-      <View style={GlobalStyles.headerTop}>
-        <Txt children={'Life Line Hospital'} color="white" />
-        {/* <SvgXml xml={health} width={50} height={50} />        */}
-      </View>
-
-      <View style={[GlobalStyles.mainContainer]}>
+     <Headder/>
         <ScrollView>
           <View style={styles.searchContainer}>
             <TextInput
@@ -32,7 +27,6 @@ const DoctorAppointment = () => {
             <DoctorCard />
           </View>
         </ScrollView>
-      </View>
     </SafeAreaView>
   );
 };
